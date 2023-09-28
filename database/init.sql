@@ -4,11 +4,6 @@ CREATE TABLE task(
     description TEXT
 );
 
-ALTER TABLE task ADD COLUMN user_id INTEGER REFERENCES users(id);
-
--- remove unique from title
-ALTER TABLE task DROP CONSTRAINT task_title_key;
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -17,5 +12,9 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE task DROP CONSTRAINT task_title_key;
+
+ALTER TABLE task ADD COLUMN user_id INTEGER REFERENCES users(id);
 
 ALTER TABLE users ADD COLUMN gravatar VARCHAR(255);
