@@ -12,6 +12,7 @@ function RegisterPage() {
   const { signup, errors: signupErrors } = useAuth();
   const navigate = useNavigate();
 
+  //this function will be called when the form is submitted
   const onSubmit = handleSubmit(async (data) => {
     const user = await signup(data);
 
