@@ -27,7 +27,7 @@ function App() {
     <>
       <Navbar />
 
-      <Container className="py-5">
+      <Container className="py-5 font-monse">
         <Routes>
           <Route
             element={<ProtectedRoute isAllowed={!isAuth} redirectTo="/tasks" />}

@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <nav className="bg-zinc-950">
-      <Container className="flex justify-between py-3">
+      <Container className="flex font-monse justify-between py-3">
         <Link to="/">
           <h1 className="font-bold text-2xl">TaskMaster</h1>
         </Link>
