@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 
 import { useAuth } from "./context/AuthContext";
 import { TaskProvider } from "./context/TaskContext";
@@ -15,13 +15,14 @@ import TasksPage from "./pages/TasksPage";
 import TaskFormPage from "./pages/TaskFormPage";
 import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
+import { set } from "react-hook-form";
+
+
 
 function App() {
   const { isAuth, loading } = useAuth();
 
-  if (loading) return <h1>
-    Cargando...
-  </h1>
+  if (loading) return <h1>Cargando...</h1>;
 
   return (
     <>

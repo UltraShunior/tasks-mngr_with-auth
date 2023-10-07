@@ -9,13 +9,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { set, useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Input, Ripple, initTE } from "tw-elements";
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 function LoginPage() {
   useEffect(() => {
     initTE({ Input, Ripple });
   }, []);
-
   const {
     register,
     handleSubmit,
@@ -39,7 +38,7 @@ function LoginPage() {
             ))}
 
           <div className="flex flex-row items-center justify-center lg:justify-start">
-            <h2 className="mb-0 mr-1 text-2xl font-bold">Login with</h2>
+            <h3 className="mb-0 mr-1 text-2xl font-bold">Login with</h3>
 
             <button
               type="button"
@@ -69,15 +68,15 @@ function LoginPage() {
             <InputCustom
               type="email"
               className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              {...register("exampleFormControlInput2", {
+              {...register("email", {
                 required: true,
               })}
-              id="exampleFormControlInput2"
+              id="email"
               placeholder="Email"
             />
 
             <Label
-              for="exampleFormControlInput2"
+              for="email"
               className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
             >
               Email
@@ -91,13 +90,13 @@ function LoginPage() {
               type="password"
               className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
               placeholder="Password"
-              id="exampleFormControlInput22"
-              {...register("exampleFormControlInput22", {
+              id="password"
+              {...register("password", {
                 required: true,
               })}
             />
             <Label
-              htmlFor="exampleFormControlInput22"
+              htmlFor="password"
               className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
             >
               Password
@@ -143,6 +142,7 @@ function LoginPage() {
               </Link>
             </p>
           </div>
+          
         </form>
       </Card>
     </Container>
