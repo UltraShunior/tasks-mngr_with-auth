@@ -13,14 +13,9 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 function RegisterPage() {
-  console.log(useLocation());
   const { pathname } = useLocation();
   useEffect(() => {
-    if (pathname !== "/login") {
-      setTimeout(() => {
-        initTE({ Input, Ripple });
-      }, 100);
-    }
+    initTE({ Input, Ripple });
   }, []);
 
   const {
@@ -33,6 +28,7 @@ function RegisterPage() {
 
   //this function will be called when the form is submitted
   const onSubmit = handleSubmit(async (data) => {
+    console.log(data);
     const user = await signup(data);
 
     if (user) navigate("/tasks");
@@ -40,10 +36,10 @@ function RegisterPage() {
 
   return (
     <Container
-      key="register"
       className="h-[calc(100vh-10rem)] flex items-center justify-center"
     >
-      <Card key="register">
+      
+      <Card className="bg-opacity-[0.5]" >
         {signupErrors &&
           signupErrors.map((err) => (
             <p className="bg-red-500 text-white p-2 text-center">{err}</p>
@@ -52,12 +48,11 @@ function RegisterPage() {
         <div className="flex flex-row items-center justify-center lg:justify-start">
           <h3 className="text-2xl font-bold">Register</h3>
         </div>
-        <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300"></div>
+        <div className="mb-8 w-[12rem] m-auto border-t border-neutral-600"></div>
 
         <form onSubmit={onSubmit}>
           <div className="relative mb-6" data-te-input-wrapper-init>
             <InputCustom
-              key="register"
               className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
               {...register("name", {
                 required: true,
@@ -93,7 +88,7 @@ function RegisterPage() {
               Email
             </Label>
           </div>
-          {errors.email && <p className="text-red-500">email is required</p>}
+          {errors.email && <p className="text-red-500 mt-[-1.5rem] mb-[1.5rem]">email is required</p>}
 
           <div className="relative mb-6" data-te-input-wrapper-init>
             <InputCustom
@@ -113,13 +108,13 @@ function RegisterPage() {
             </Label>
           </div>
           {errors.password && (
-            <p className="text-red-500">password is required</p>
+            <p className="text-red-500 mt-[-1.5rem] mb-[1.5rem]">password is required</p>
           )}
 
           <div className="text-center lg:text-left">
             <Button
               type="submit"
-              className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+              className="inline-block mb-4 rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
               data-te-ripple-init
               data-te-ripple-color="light"
             >

@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet, useLocation } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 
 import { useAuth } from "./context/AuthContext";
 import { TaskProvider } from "./context/TaskContext";
@@ -17,8 +17,6 @@ import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
 import { set } from "react-hook-form";
 
-
-
 function App() {
   const { isAuth, loading } = useAuth();
 
@@ -29,6 +27,8 @@ function App() {
       <Navbar />
 
       <Container className="py-5 font-monse">
+        <div className="absolute top-[-10rem] -z-10 right-[-10rem] h-[35rem] w-[32rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-red-500 dark:bg-opacity-[0.3]"></div>
+        <div className="absolute top-[35rem] -z-10 left-[-35rem] h-[35rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-primary dark:bg-opacity-[0.3]"></div>
         <Routes>
           <Route
             element={<ProtectedRoute isAllowed={!isAuth} redirectTo="/tasks" />}
