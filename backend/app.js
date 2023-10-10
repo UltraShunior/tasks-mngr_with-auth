@@ -10,6 +10,8 @@ import { pool } from "./db.js";
 
 const app = express();
 
+console.log("ORIGIN:", ORIGIN);
+
 // Middlewares
 app.use(
   cors({

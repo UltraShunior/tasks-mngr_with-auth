@@ -25,7 +25,7 @@ function Navbar() {
                     to={path}
                     className={twMerge(
                       "text-slate-300 flex items-center px-3 py-1 gap-x-1",
-                      location.pathname === path && "bg-sky-500"
+                      location.pathname === path && "bg-primary rounded"
                     )}
                   >
                     {icon}

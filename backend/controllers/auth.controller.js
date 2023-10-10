@@ -38,6 +38,7 @@ export const signin = async (req, res) => {
 
 export const signup = async (req, res, next) => {
   const { name, email, password } = req.body;
+  console.log(req.body);
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);

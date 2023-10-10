@@ -28,7 +28,6 @@ function RegisterPage() {
 
   //this function will be called when the form is submitted
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
     const user = await signup(data);
 
     if (user) navigate("/tasks");
@@ -41,11 +40,11 @@ function RegisterPage() {
       
       <Card className="bg-opacity-[0.5]" >
         {signupErrors &&
-          signupErrors.map((err) => (
-            <p className="bg-red-500 text-white p-2 text-center">{err}</p>
+          signupErrors.map((err, i) => (
+            <p key={i} className="bg-red-500 text-white p-2 text-center">{err}</p>
           ))}
 
-        <div className="flex flex-row items-center justify-center lg:justify-start">
+        <div className="flex flex-row items-center justify-center">
           <h3 className="text-2xl font-bold">Register</h3>
         </div>
         <div className="mb-8 w-[12rem] m-auto border-t border-neutral-600"></div>
@@ -111,7 +110,7 @@ function RegisterPage() {
             <p className="text-red-500 mt-[-1.5rem] mb-[1.5rem]">password is required</p>
           )}
 
-          <div className="text-center lg:text-left">
+          <div className="text-center">
             <Button
               type="submit"
               className="inline-block mb-4 rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
