@@ -63,7 +63,7 @@ function Navbar() {
                 )}
                 key={path}
               >
-                <a href={path}>{name}</a>
+                <Link to={path}>{name}</Link>
               </li>
             ))
           )}
