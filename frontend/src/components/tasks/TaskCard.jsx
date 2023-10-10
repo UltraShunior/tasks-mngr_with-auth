@@ -9,7 +9,7 @@ function TaskCard({ task }) {
   const navigate = useNavigate();
 
   return (
-    <Card key={task.id} className="px-7 py-4 flex flex-col justify-center">
+    <Card key={task.id} className="px-7 py-4 justify-center flex flex-col bg-zinc-800 bg-opacity-[0.5] shadow-xl shadow-black/[0.26] backdrop-blur-[0.5rem] border border-neutral-700/25 ">
       <div>
         <h1 className="text-2xl font-bold">{task.title}</h1>
         <p>{task.description}</p>
@@ -20,15 +20,17 @@ function TaskCard({ task }) {
           Editar
         </Button>
         <Button
-          className="bg-red-700 hover:bg-red-600"
+          className="bg-red-700 w-[6rem] rounded-md hover:bg-red-600"
           onClick={async () => {
             if (window.confirm("¿Estás seguro de eliminar esta tarea?")) {
               deleteTask(task.id);
             }
           }}
         >
-          <PiTrashSimpleLight className="text-white" />
-          Eliminar
+          <div className="flex items-center justify-center">
+            <PiTrashSimpleLight className="text-white" />
+            Eliminar
+          </div>
         </Button>
       </div>
     </Card>
