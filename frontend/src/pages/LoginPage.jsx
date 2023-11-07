@@ -8,13 +8,8 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { set, useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
-import { Input, Ripple, initTE } from "tw-elements";
-import { useEffect } from 'react'
 
 function LoginPage() {
-  useEffect(() => {
-    initTE({ Input, Ripple });
-  }, []);
   const {
     register,
     handleSubmit,
@@ -30,7 +25,7 @@ function LoginPage() {
   });
   return (
     <Container className="h-[calc(100vh-10rem)] flex items-center justify-center">
-      <Card>
+      <Card className="px-7 py-4 justify-center flex flex-col bg-zinc-800 bg-opacity-[0.5] shadow-xl shadow-black/[0.26] backdrop-blur-[0.5rem] border border-neutral-700/25">
         <form className="p-6" onSubmit={onSubmit}>
           {loginErrors &&
             loginErrors.map((err, i) => (
@@ -41,8 +36,6 @@ function LoginPage() {
             <h3 className="mb-0 mr-1 text-2xl font-bold">Login with</h3>
             <button
               type="button"
-              data-te-ripple-init
-              data-te-ripple-color="light"
               className="mx-1 h-9 w-9 rounded-full bg-primary uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
             >
               <svg
@@ -63,44 +56,39 @@ function LoginPage() {
           </div>
 
           {/* email */}
-          <div className="relative mb-6" data-te-input-wrapper-init>
+          <Label
+              htmlFor="email"
+              className="block"
+            >
+              Email
+            </Label>
             <InputCustom
               type="email"
-              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              className="mb-2 w-full border border-neutral-700/25 rounded-md p-2 bg-neutral-700/25 text-white placeholder-neutral-500/50 focus:outline-none focus:ring-2 focus:ring-neutral-500/50 focus:border-transparent transition-all duration-200 ease-in-out hover:bg-neutral-700/50 hover:border-transparent hover:ring-2 hover:ring-neutral-500/50 hover:text-white hover:placeholder-neutral-500/50"
               {...register("email", {
                 required: true,
               })}
               id="email"
               placeholder="Email"
             />
-
-            <Label
-              for="email"
-              className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-            >
-              Email
-            </Label>
-          </div>
           {errors.email && <p className="text-red-500">Email is required</p>}
 
           {/* password */}
-          <div className="relative mb-6" data-te-input-wrapper-init>
+          <Label
+              htmlFor="password"
+              className="block"
+            >
+              Password
+            </Label>
             <InputCustom
               type="password"
-              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              className="mb-2 w-full border border-neutral-700/25 rounded-md p-2 bg-neutral-700/25 text-white placeholder-neutral-500/50 focus:outline-none focus:ring-2 focus:ring-neutral-500/50 focus:border-transparent transition-all duration-200 ease-in-out hover:bg-neutral-700/50 hover:border-transparent hover:ring-2 hover:ring-neutral-500/50 hover:text-white hover:placeholder-neutral-500/50 "
               placeholder="Password"
               id="password"
               {...register("password", {
                 required: true,
               })}
             />
-            <Label
-              htmlFor="password"
-              className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-            >
-              Password
-            </Label>
-          </div>
           {errors.password && (
             <p className="text-red-500">Password is required</p>
           )}

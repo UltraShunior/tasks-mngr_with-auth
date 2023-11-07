@@ -54,7 +54,7 @@ function TaskFormPage() {
           <Input
             type="text"
             placeholder="Title"
-            className="mb-2 w-full border border-neutral-700/25 rounded-md p-2 bg-neutral-700/25 text-white placeholder-neutral-500/50 focus:outline-none focus:ring-2 focus:ring-neutral-500/50 focus:border-transparent transition-all duration-200 ease-in-out hover:bg-neutral-700/50 hover:border-transparent hover:ring-2 hover:ring-neutral-500/50 hover:text-white hover:placeholder-neutral-500/50 " 
+            className="mb-2 w-full border border-neutral-700/25 rounded-md p-2 bg-neutral-700/25 text-white placeholder-neutral-500/50 focus:outline-none focus:ring-2 focus:ring-neutral-500/50 focus:border-transparent transition-all duration-200 ease-in-out hover:bg-neutral-700/50 hover:border-transparent hover:ring-2 hover:ring-neutral-500/50 hover:text-white hover:placeholder-neutral-500/50" 
             autoFocus
             {...register("title", {
               required: true,
@@ -66,7 +66,7 @@ function TaskFormPage() {
 
           <Label htmlFor="description" className="block">Description</Label>
           <Textarea
-            className="mb-2 w-full border border-neutral-700/25 rounded-md p-2 bg-neutral-700/25 text-white placeholder-neutral-500/50 focus:outline-none focus:ring-2 focus:ring-neutral-500/50 focus:border-transparent transition-all duration-200 ease-in-out hover:bg-neutral-700/50 hover:border-transparent hover:ring-2 hover:ring-neutral-500/50 hover:text-white hover:placeholder-neutral-500/50 "
+            className="mb-2 w-full border border-neutral-700/25 rounded-md p-2 bg-neutral-700/25 text-white placeholder-neutral-500/50 focus:outline-none focus:ring-2 focus:ring-neutral-500/50 focus:border-transparent transition-all duration-200 ease-in-out hover:bg-neutral-700/50 hover:border-transparent hover:ring-2 hover:ring-neutral-500/50 hover:text-white hover:placeholder-neutral-500/50"
             placeholder="Description"
             rows={3}
             {...register("description")}
