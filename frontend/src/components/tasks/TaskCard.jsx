@@ -9,7 +9,7 @@ function TaskCard({ task }) {
   const navigate = useNavigate();
 
   return (
-    <Card key={task.id} className="px-7 py-4 justify-center flex flex-col bg-zinc-800 bg-opacity-[0.5] shadow-xl shadow-black/[0.26] backdrop-blur-[0.5rem] border border-neutral-700/25 ">
+    <Card key={task.id} className="px-7 py-4 justify-center flex flex-col bg-zinc-800 bg-opacity-[0.5] shadow-xl shadow-black/[0.26] backdrop-blur-[0.5rem] border border-neutral-700/25">
       <div>
         <h1 className="text-2xl font-bold">{task.title}</h1>
         <p>{task.description}</p>
