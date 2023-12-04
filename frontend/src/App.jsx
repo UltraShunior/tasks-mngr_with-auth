@@ -16,7 +16,6 @@ import TaskFormPage from "./pages/TaskFormPage";
 import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
 import { tweInit } from "./utils/tweInit";
-import { set } from "react-hook-form";
 
 function App() {
   const { isAuth, loading } = useAuth();
@@ -26,7 +25,6 @@ function App() {
   return (
     <>
       <Navbar />
-
       <Container className="py-5 font-monse">
         <div className="fixed top-[-15rem] -z-10 right-[-10rem] h-[35rem] w-[32rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-red-500 bg-opacity-[0.3]"></div>
         <div className="fixed top-[35rem] left-[-35rem] -z-10 h-[35rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] bg-primary bg-opacity-[0.3]"></div>
