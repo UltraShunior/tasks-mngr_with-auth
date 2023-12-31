@@ -26,7 +26,7 @@ function App() {
     <>
       <Navbar />
       <Container className="py-5 font-monse">
-        <div className="fixed top-[-15rem] -z-10 right-[-10rem] h-[35rem] w-[32rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-red-500 bg-opacity-[0.3]"></div>
+        <div className="fixed top-[-15rem] -z-10 right-[-10rem] h-[35rem] w-[32rem] rounded-full blur-[10rem] sm:w-[68.75rem] bg-red-500 bg-opacity-[0.2]"></div>
         <div className="fixed top-[35rem] left-[-35rem] -z-10 h-[35rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] bg-primary bg-opacity-[0.3]"></div>
         <Routes>
           <Route
