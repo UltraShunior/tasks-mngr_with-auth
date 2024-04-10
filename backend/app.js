@@ -27,8 +27,12 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.get("/", (req, res) => res.json({ message: "welcome to my API" }));
 app.get("/api/ping", async (req, res) => {
-  const result = await pool.query("SELECT NOW()");
-  return res.json(result.rows[0]);
+  try {
+    const result = await pool.query("SELECT NOW()");
+    return res.json(result.rows[0]);
+  } catch (err) {
+    console.error('data base desconnected', err)
+  }
 });
 app.use("/api", taskRoutes);
 app.use("/api", authRoutes);
